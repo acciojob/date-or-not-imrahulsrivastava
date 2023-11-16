@@ -7,7 +7,7 @@ var isDate = function (input) {
 
   if (typeof input === "string") {
     var date = new Date(input);
-    return !isNaN(date.getTime());
+    return !isNaN(date.getTime()) && date.toISOString() === input;
   }
 
   return false;
