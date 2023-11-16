@@ -1,13 +1,12 @@
 var isDate = function (input) {
-  //   write your code here
-
   if (input instanceof Date) {
-    return true;
-  }
-
-  if (typeof input === "string") {
+    return !isNaN(input.getTime());
+  } else if (typeof input === "string") {
     var date = new Date(input);
-    return !isNaN(date.getTime()) && date.toISOString() === input;
+    return (
+      !isNaN(date.getTime()) &&
+      date.toISOString().slice(0, 10) === input.slice(0, 10)
+    );
   }
 
   return false;
